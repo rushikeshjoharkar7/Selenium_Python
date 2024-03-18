@@ -1,26 +1,24 @@
-import time
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
 
-# Specify the version of ChromeDriver that matches your Chrome browser version
-chrome_driver_path = "C:\\CHROME_DRIVER_FOLDER_PATH\\chromedriver.exe"
+chromedriver_path = "C:\\UserCreation_Automation\\webdriver\\chromedriver.exe"
 
-# Initialize Chrome Service
-chrome_service = Service(chrome_driver_path)
+service = Service(executable_path=chromedriver_path)
+options = webdriver.ChromeOptions()
+options.add_experimental_option("useAutomationExtension", False)
+options.add_experimental_option("excludeSwitches",["enable-automation"])
 
-# Configure Chrome options
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--ignore-certificate-errors')
-chrome_options.add_argument('--ignore-ssl-errors')
-
-# Initialize Chrome WebDriver
-driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-
-# Open the desired URL
-url = "https://www.google.com"
-driver.get(url)
+driver = webdriver.Chrome(service=service, options=options)
 driver.maximize_window()
-time.sleep(10)
+time.sleep(2)
+driver.get('https://www.icc-cricket.com/')
+time.sleep(5)
+
+accept_button = driver.find_element(By.XPATH, '//button[contains(text(),"Accept All Cookies")]')
+accept_button.click()
+time.sleep(200)
+
 driver.close()
