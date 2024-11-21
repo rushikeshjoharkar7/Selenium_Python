@@ -1,0 +1,49 @@
+Here are some of the basic SQL commands:
+
+Data Definition Language (DDL) Commands:
+
+CREATE TABLE: Creates a new table.
+ALTER TABLE: Modifies an existing table (add, drop, or modify columns).
+DROP TABLE: Deletes a table.
+Data Manipulation Language (DML) Commands:
+
+INSERT INTO: Inserts rows into a table.
+SELECT: Retrieves data from one or more tables.
+UPDATE: Modifies existing data in a table.
+DELETE FROM: Deletes rows from a table.
+Data Query Language (DQL) Commands:
+
+SELECT: Retrieves data from one or more tables (same as DML).
+WHERE: Filters the result set based on specific conditions.
+ORDER BY: Sorts the result set in ascending or descending order.
+GROUP BY: Groups rows based on one or more columns.
+HAVING: Filters groups created by the GROUP BY clause.
+Data Control Language (DCL) Commands:
+
+GRANT: Grants privileges to users or roles.
+REVOKE: Revokes privileges from users or roles.
+Example:
+
+SQL
+-- Create a table named 'students'
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    grade VARCHAR(10)
+);
+
+-- Insert data into the 'students' table
+INSERT INTO students (id, name, age, grade)
+VALUES (1, 'Alice', 15, '10th'),
+       (2, 'Bob', 16, '11th'),
+       (3, 'Charlie', 14, '9th');
+
+-- Retrieve all students from the 'students' table
+SELECT * FROM students;
+
+-- Retrieve students older than 15
+SELECT * FROM students WHERE age > 15;
+
+-- Sort students by age in descending order
+SELECT * FROM students ORDER BY age DESC;
